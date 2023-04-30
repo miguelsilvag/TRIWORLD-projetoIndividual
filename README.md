@@ -1,0 +1,1 @@
+# TRIWORD-projetoIndividual
