@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+ 
+}
+
+header {
+    padding: 15px;
+    background-color: rgb(255, 123, 0);
+    min-height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #383c42;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #fff;
+    margin: 2 auto;
+    width: 80%;
+}
+
+header button {
+    background-color: green;
+    width: 100%;
+    height: 25px;
+    border: 0;
+    outline: 0;
+    border-radius: 12px;
+    margin-top: 2%;
+    font-weight: 100%;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0ms;
+}
+
+
+h1 {
+    color: #ffffff;
+}
+
+ul {
+    display: flex;
+    width: 600px;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    padding: 0.7em;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    background-image: url(../img/fundo-cadastro.jpg);
+    background-size: 175%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+main #teste {
+    margin: 5%;
+    width: 600px;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 18px;
+    padding: 50px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(12px);
+
+}
+
+main #teste .inputs-container {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    border-top: 1px solid white;
+}
+
+.cadastre-se {
+    font-size: 40px;
+    color: red;
+    margin-bottom: 30px;
+
+
+}
+
+main #teste .inputs-container input {
+    height: 50px;
+    width: 300px;
+    border: 0;
+    outline: 0;
+    padding: 8px 15px;
+    border: 1px solid white;
+    border-radius: 12px;
+    background-color: transparent;
+    font-size: 16px;
+    color: white;
+    margin: 10px;
+
+
+}
+
+
+
+main #teste .password-container {
+    margin-top: 10px;
+    width: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main #teste .password-infos {
+    width: 90%;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main #teste .password-infos a {
+    transition: 0.2s ease-in-out;
+}
+
+main #teste .password-infos a:hover {
+    color: #18acfe;
+}
+
+#btn-cadastro {
+    height: 50px;
+    width: 200px;
+    margin-bottom: 100px;
+}
+
+
+
+.main2 {
+    display: none;
+    height: 1048px;
+    width: 100px;
+    min-width: 100%;
+    justify-content: center;
+
+}
+
+.pg {
+    font-size: 18px;
+}
+.but-cadastro{
+
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: none;
+    border-radius: 18px;
+}
+
+main #teste button:hover {
+    background-color: white;
+
+}
