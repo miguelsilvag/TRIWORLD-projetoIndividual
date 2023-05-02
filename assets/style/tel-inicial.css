@@ -58,7 +58,7 @@ body {
     position: absolute;
     display: flex;
     left: 100px;
-    top: 100px;
+    top: 150px;
 }
 
 .txt1 {
@@ -88,7 +88,7 @@ body {
     position: absolute;
     display: flex;
     left: 980px;
-    top: 400px;
+    top: 450px;
 }
 
 .txt3 {
@@ -130,7 +130,7 @@ body {
 
 .d1 {
     height: fit-content;
-    background-image: url("../img/spfc.jpg");
+    background-image: url("../img/morumbi.jpg");
     background-size: cover;
     box-shadow: 0 1px 10px 13px red;
     height: 600px;
@@ -142,7 +142,7 @@ body {
     font-style: italic;
     font-size: 15px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     background-color: #ffffff81;
     border-radius: 30px;
@@ -239,7 +239,7 @@ body {
 
 .footer {
     background-color: red;
-    height: 150px;
+    height: 125px;
     color: #fff;
     display: flex;
     font-size: 15px;
