@@ -5,15 +5,17 @@ body {
   }
 
   header {
-    background-color: #000;
+    background-color: white;
     color: #fff;
     padding: 20px;
     text-align: center;
   }
 
   h1 {
-    margin-top: 0;
+    margin-top: 3;
     text-align: center;
+    color: white;
+    font-size: 1;
   }
 
   table {
@@ -35,16 +37,20 @@ body {
     font-size: 1.5em;
     margin-top: 30px;
     text-align: center;
+    color: white;
   }
   table {
     border-collapse: collapse;
     width: 80%;
     margin: 30px auto;
+    backdrop-filter: blur(10px);
   }
   th, td {
     border: 1px solid #ddd;
     text-align: left;
     padding: 8px;
+    color: white;
+    font-size: 1;
   }
   th {
     background-color: red;
@@ -52,5 +58,5 @@ body {
   }
 
   main{
-    background-image: url();
+    background-image: url(../img/morumbi2.jpg);
   }
