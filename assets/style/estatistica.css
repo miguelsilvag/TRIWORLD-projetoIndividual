@@ -43,7 +43,7 @@ body {
     border-collapse: collapse;
     width: 80%;
     margin: 30px auto;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(100px);
   }
   th, td {
     border: 1px solid #ddd;
@@ -59,4 +59,5 @@ body {
 
   main{
     background-image: url(../img/morumbi2.jpg);
+   
   }

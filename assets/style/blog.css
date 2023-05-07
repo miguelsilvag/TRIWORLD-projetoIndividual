@@ -1,8 +1,4 @@
-.main-content {
-    padding: 20px;
-  }
-  
-  .question-form {
+.question-form {
     margin-top: 20px;
     padding: 20px;
     background-color: #f2f2f2;
@@ -14,4 +10,48 @@
   
   .question-form h2 {
     margin-top: 0;
+  }
+  header {
+		background-color: #222;
+		color: #fff;
+		padding: 10px;
+		text-align: center;
+	}
+	
+	h1 {
+		margin: 0;
+		font-size: 36px;
+		line-height: 44px;
+	}
+	
+	main {
+		max-width: 800px;
+		margin: 20px auto;
+		padding: 20px;
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0,0,0,.2);
+	}
+	
+	article {
+		margin-bottom: 20px;
+	}
+	
+	h2 {
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+	
+	p {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	
+	img {
+		max-width: 100%;
+		height: auto;
+		margin-bottom: 10px;
+	}
+
+ .main-content{
+    text-align: center;
   }
