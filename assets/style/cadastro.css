@@ -22,11 +22,7 @@ li {
 }
 
 main {
-    height: 100%;
-    width: 100%;
-    min-width: 100%;
-    background-image: url(../img/fundo-cadastro.jpg);
-    background-size: 175%;
+   
     align-items: center;
     display: flex;
     justify-content: center;
