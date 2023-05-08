@@ -38,207 +38,121 @@ body {
     color: black;
 }
 
+.banner
+{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: 300px;
+    text-align: center;
+    justify-content: center;
 
-.titulo {
-    color: black;
-    width: fit-content;
-    font-weight: 400;
 }
 
 
-/* BANNER */
-
-.banner {
-    height: fit-content;
+.nav
+{
+    display: flex;
+    height: 30%;
+    width: 25%;
+    justify-content: center;
+    position: relative;
+    top:    0%;
+    left: 25%;
+    
+    
+}
+.txt-h1 
+{
+    height: 80px;
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 64px;
     color: white;
-    box-shadow: 0 1px 10px 13px black;
+    margin: 0;
+    padding: 0;
+    display: flex;  
+}
+.nav-2
+{
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 60px;
+    position: relative;
+    top: 30%;
+    right: 12%;
+    text-align: center;
+
+    
+}.txt-p{
+
+    font-family: 'ABeeZee', sans-serif;
+    color: white;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;  
+    align-items: center;
+    justify-content: center;
    
 }
 
-.container1 {
-    position: absolute;
+.saiba_mais
+{
+  
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 32px;
+    width: 20%;
     display: flex;
-    left: 100px;
-    top: 150px;
-}
-
-.txt1 {
-    font-style: italic;
-    display: flex;
-    justify-content: flex-start;
-
-}
-
-.container2 {
-    position: absolute;
-    display: flex;
-    left: 500px;
-    top: 300px;
-
-}
-
-.txt2 {
-
-    font-style: italic;
-    display: flex;
-    justify-content: flex-start;
-
-}
-
-.container3 {
-    position: absolute;
-    display: flex;
-    left: 980px;
-    top: 450px;
-}
-
-.txt3 {
-
-    font-style: italic;
-    display: flex;
-    justify-content: flex-start;
-
-}
-
-
-
-.banner p {
-    width: 50%;
+    height: 100px;
     margin: 0;
-    padding: 0;
-    width: 280px;
-    font-size: 36px;
-}
-
-.banner .container span {
-    font-weight: 800;
-}
-
-.pred {
-    height: 200px;
-
-}
-
-.pred1 {
-    padding: 5%;
-    height: 80px;
-    font-size: 40px;
-    font-style: italic;
-    display: flex;
-    justify-content: space-around;
+    border: 0;
     align-items: center;
-}
-
-.d1 {
-    height: fit-content;
-    background-image: url("../img/morumbi.jpg");
-    background-size: cover;
-    box-shadow: 0 1px 10px 13px red;
-    height: 600px;
-    
-}
-
-.d1d1 {
-    width: 450px;
-    margin-left: 800px;
-    font-style: italic;
-    font-size: 15px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #ffffff81;
-    border-radius: 30px;
-    padding-left: 10px;
-    
-}
-
-.d1d2 {
-    width: 300px;
-    margin-left: 10%;
-    font-style: italic;
-    font-size: 15px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #ffffff81;
-    border-radius: 30px;
-    padding-left: 10px;
-}
-
-.d1d3 {
-    width: 450px;
-    margin-left: 800px;
-    font-style: italic;
-    font-size: 15px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: #ffffff81;
-    border-radius: 30px;
-    padding-left: 10px;
-}
-
-.d1d4 {
-    width: 300px;
-    margin-left: 10%;
-    font-style: italic;
-    font-size: 15px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #ffffff81;
-    border-radius: 10px;
-    padding-left: 10px;
-}
-
-/* missao visao valores */
-.boxes {
-
-    display: flex;
-    flex-direction: column;
-}
-
-.social {
-    background-color: white;
-    display: flex;
-}
-
-.social .container {
     justify-content: center;
+    position: relative;
+    top:0px;
+    left: 40%;
+    border-radius: 50px;
+    background: linear-gradient(180deg, red
+     0%, rgba(214, 214, 214, 0.9) 100%);
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.saiba_mais:hover {
+    background: linear-gradient(180deg, black
+    0%, rgba(214, 214, 214, 0.9) 100%);
+   cursor: pointer;
+}
+.saiba_mais a 
+{
+    text-decoration: none;
+    color: white;
 }
 
-.box img {
-    width: 230px;
-    height: 230px;
-}
-
-.social .container .boxes {
-    display: flex;
-}
-
-.social p {
+.nav-sobre_nos
+{
+    font-family: 'ABeeZee', sans-serif;
+    width: 100%;
+    position: relative;
+    top: 180px;
+    color: white;
     text-align: center;
 }
-
-.box {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: whitesmoke;
+.sobre_nos .sobre-nos-txt
+{
+    font-size: 60px;
+    margin: 2%;
+}
+.sobre_nos .paragrafo-txt
+{
+    font-size: 30px;
+    margin: 2%;
+    
 }
 
-
-.box {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-/* FOOTER */
 
 .footer {
     background-color: red;
@@ -255,4 +169,20 @@ body {
 
 .footer .container .version {
     font-size: 12px;
+}
+
+
+h1 {
+margin: 0;
+font-size: 36px;
+font-weight: bold;
+color: white;
+}
+
+.testess{
+    background-image: url(../img/morumbas.jpg);
+    background-size: 125%;
+    filter: contrast(100%);
+    
+
 }

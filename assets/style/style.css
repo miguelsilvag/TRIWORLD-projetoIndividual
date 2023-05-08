@@ -6,7 +6,7 @@
 	text-decoration: none;
 	}
 	body {
-	background-color: aliceblue   ;
+	background-color: white   ;
 	}
 	
 	.body-site {
@@ -81,63 +81,6 @@
 	background: white;
 	border-radius: 30px;
 	border: none;
-	}
-	
-	
-	.grafico_linha {
-	height: 100%;
-	width: 100%;
-	margin-right: 3%;
-	}
-	
-	.escala {
-	display: flex;
-	
-	justify-content: center;
-	
-	position: absolute;
-	top: 126%;
-	left: 50%;
-	transform: translate(-15%);
-	
-	}
-	.Escala-Umidade {
-	margin-left: 4%;
-	}
-	
-	
-	.barra-notify {
-	background: #33dcf7;
-	border-radius: 30px;
-	padding: 10px 15px;
-	width: 80%;
-	height: 40%;
-	}
-	
-	.barra-notify > h1 {
-	margin-right: 10%;
-	
-	}
-	
-	.Alert {
-	background: rgb(248, 248, 111);
-	border-radius: 30px;
-	padding: 10px 15px;
-	
-	}
-	.alertas{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		flex-direction: column;
-		margin: 10%;
-		border-top: 2px solid black;
-		padding-top:5% ;
-	}
-	h1{
-		text-align: center;
-		margin: 5%;
 	}
 	
 	.charts {
