@@ -219,4 +219,6 @@
 		margin-bottom: 40px;
 		border: 1px solid #ccc;
 		padding: 20px;
+		backdrop-filter: blur(100px);
+		color: white;
 	}	
