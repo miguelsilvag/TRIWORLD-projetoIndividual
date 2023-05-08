@@ -1,6 +1,6 @@
 main {
     background-image: url(../img/torcida.jpg);
-    background-size: 1300px;
+    background-size: 100vw;
     display: flex;
     justify-content: center;
    
