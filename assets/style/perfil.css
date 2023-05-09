@@ -1,0 +1,28 @@
+.testando {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+img {
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
