@@ -7,7 +7,8 @@
     <title>Perfil do Usuário</title>
     <link rel="stylesheet" href="./assets/style/perfil.css">
     <link rel="stylesheet" href="./assets/style/blog.css">
-<link rel="stylesheet" href="./assets/style/login.css">
+    <link rel="stylesheet" href="./assets/style/login.css">
+    <link rel="stylesheet" href="./assets/style/teste.css">
 
     <link rel="icon"
         href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
@@ -24,7 +25,15 @@
 
             <div class="testando">
                 <h1>Perfil do Usuário</h1>
-                <img src="./assets/img/spfcXcor.jpg" alt="Foto de perfil do usuário">
+                <h1>Meu Perfil</h1>
+
+                <img id="perfil">
+                <form>
+                    <label for="imagem">Escolha uma imagem:</label><br>
+                    <input type="file" id="imagem" name="imagem"><br>
+                    <input type="submit" value="Salvar Imagem"><br>
+                </form>
+
                 <h2>Miguel Silva</h2>
                 <p>Idade: 20 anos</p>
                 <p>E-mail: exemplo@exemplo.com</p>
@@ -34,8 +43,21 @@
                 <button onclick="voltar()"><a style="color: white
                 ;" href="./dash.html"> Voltar</a></button>
             </div>
-          
+
         </main>
     </body>
 
 </html>
+
+
+<script>
+    // Adiciona um evento para quando o usuário selecionar uma nova imagem
+    document.querySelector('#imagem').addEventListener('change', function (event) {
+        // Pega a imagem selecionada
+        var imagem = event.target.files[0];
+        // Cria um objeto URL com a URL da imagem selecionada
+        var url = URL.createObjectURL(imagem);
+        // Atualiza a imagem do perfil com a nova imagem
+        document.querySelector('#perfil').setAttribute('src', url);
+    });
+</script>

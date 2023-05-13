@@ -59,3 +59,30 @@ button a{
     text-decoration: none;
     color: white;
 }
+  
+form {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+  }
+  label, input[type=file] {
+    display: block;
+    margin: 10px auto;
+    align-items: center;
+  }
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  /* Estilo para a imagem do perfil */
+  #perfil {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+  }
