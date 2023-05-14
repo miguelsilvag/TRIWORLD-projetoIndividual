@@ -8,6 +8,7 @@
     <link rel="icon"
         href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
     <link rel="stylesheet" href="./assets/style/tel-inicial.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -85,7 +86,16 @@
         </select><br>
 
         <input type="submit" value="Enviar">
+
+        <div class="chart doughnut-chart">
+            <h2>Posição no quiz</h2>
+            <div>
+                <canvas id="titulos"></canvas>
+            </div>
+        </div>
+
     </form>
+
 </body>
 
 </html>
@@ -116,7 +126,36 @@
     })
 
 
-
+    const submit = document.getElementById('titulos','submit');
+    new Chart(titulos, {
+        type: 'bar',
+        data: {
+            labels: [
+                '2023',
+                '2022',
+                '2021',
+                '2020',
+            ],
+            datasets: [{
+                label: 'Posição',
+                data: [8, 9, 11, 12],
+                backgroundColor: [
+                    'black',
+                    'black',
+                    'black',
+                    'red',
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 
 
 
