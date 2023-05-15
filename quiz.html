@@ -9,6 +9,7 @@
         href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
     <link rel="stylesheet" href="./assets/style/tel-inicial.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./assets/js/quiz.js">
 </head>
 
 <body>
@@ -97,12 +98,10 @@
     </form>
 
 </body>
-
 </html>
-
 <script>
 
-    const form = document.querySelector('form')
+const form = document.querySelector('form')
     const options = form.querySelectorAll('select')
     const respostas = ['1977', 'Paulo Autuori', 'Estádio Morumbi', 'Serginho Chulapa', '3']
 
@@ -126,37 +125,35 @@
     })
 
 
-    const submit = document.getElementById('titulos','submit');
-    new Chart(titulos, {
-        type: 'bar',
-        data: {
-            labels: [
-                '2023',
-                '2022',
-                '2021',
-                '2020',
+
+const submit = document.getElementById('titulos','submit');
+new Chart(titulos, {
+    type: 'bar',
+    data: {
+        labels: [
+            '2023',
+            '2022',
+            '2021',
+            '2020',
+        ],
+        datasets: [{
+            label: 'Posição',
+            data: [8, 9, 11, 12],
+            backgroundColor: [
+                'black',
+                'black',
+                'black',
+                'red',
             ],
-            datasets: [{
-                label: 'Posição',
-                data: [8, 9, 11, 12],
-                backgroundColor: [
-                    'black',
-                    'black',
-                    'black',
-                    'red',
-                ],
-                hoverOffset: 4
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+            hoverOffset: 4
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
             }
         }
-    });
-
-
-
+    }
+});
 </script>

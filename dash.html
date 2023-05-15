@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./assets/style/style.css">
     <link rel="icon"
     href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
+    <link rel="stylesheet" href="./assets/js/dash.js">
     <title>Dashboard</title>
 </head>
 
@@ -120,193 +121,191 @@
 <!--footer fim-->
 </body>
 <script>
-
     const titulos = document.getElementById('titulos');
-    new Chart(titulos, {
-        type: 'bar',
-        data: {
-            labels: [
-                '2023',
-                '2022',
-                '2021',
-                '2020',
+new Chart(titulos, {
+    type: 'bar',
+    data: {
+        labels: [
+            '2023',
+            '2022',
+            '2021',
+            '2020',
+        ],
+        datasets: [{
+            label: 'titulo',
+            data: [100, 80, 100, 75],
+            backgroundColor: [
+                'black',
+                'black',
+                'black',
+                'red',
             ],
-            datasets: [{
-                label: 'titulo',
-                data: [100, 80, 100, 75],
-                backgroundColor: [
-                    'black',
-                    'black',
-                    'black',
-                    'red',
-                ],
-                hoverOffset: 4
-            }]
+            hoverOffset: 4
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+
+const graficos = [
+    {
+        id: "grafico1",
+        tipo: "line",
+        dados: {
+            labels: ['janeiro', 'fevereiro', 'Março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
+            datasets: [
+                {
+                    label: "gols",
+                    data: [16, 16, 16, 16., 17, 17, 18, 18, 19, 19, 19, 20],
+                    backgroundColor: "black",
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    borderwidth: 2
+
+                },
+                {
+                    label: 'Gols sofridos',
+                    data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66],
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    borderwidth: 2
+                },
+            ],
         },
-        options: {
+    },
+    {
+        id: "grafico2",
+        tipo: "line",
+        dados: {
+            labels: ['janeiro', 'fevereiro', 'Março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
+            datasets: [
+                {
+                    label: 'gols',
+                    data: [16, 16, 16, 16., 17, 17, 18, 18, 19, 19, 19, 20],
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    borderwidth: 2,
+                    fill: false,
+                },
+                {
+                    label: 'gols sofridos',
+                    data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66],
+                    borderColor: 'red',
+                    backgroundColor:'red',
+                    borderwidth: 2,
+                    fill: false,
+                },
+            ],
+        },
+    },
+    {
+        id: "grafico3",
+        tipo: "line",
+        dados: {
+            labels: ['janeiro', 'fevereiro', 'Março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
+            datasets: [
+                {
+                    label: "gols",
+                    data: [16, 16, 16, 16., 17, 17, 18, 18, 19, 19, 19, 20],
+                    backgroundColor: "black",
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    borderwidth: 2
+
+                },
+                {
+                    label: 'gols sofridos',
+                    data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66],
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    borderwidth: 2
+                },
+            ],
+        },
+    },
+    {
+        id: "grafico4",
+        tipo: "line",
+        dados: {
+            labels: ['janeiro', 'fevereiro', 'Março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
+            datasets: [
+                {
+                    label: 'gols',
+                    data: [16, 16, 16, 16., 17, 17, 18, 18, 19, 19, 19, 20],
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    borderwidth: 2,
+                    fill: false,
+                },
+                {
+                    label: 'gols sofridos',
+                    data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66],
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    borderwidth: 2,
+                    fill: false,
+                },
+            ],
+        }
+        , options: {
+            animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: true
+                }
+            },
             scales: {
                 y: {
+                    min: 0,
+                    max: 100,
                     beginAtZero: true
                 }
             }
         }
-    });
+    }
+];
 
+let Grafico = null;
 
+function criarGrafico(idGrafico) {
+    const graficoSelecionado = graficos.find((g) => g.id === idGrafico);
 
-    const graficos = [
-        {
-            id: "grafico1",
-            tipo: "line",
-            dados: {
-                labels: ['janeiro', 'fevereiro', 'Março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
-                datasets: [
-                    {
-                        label: "gols",
-                        data: [16, 16, 16, 16., 17, 17, 18, 18, 19, 19, 19, 20],
-                        backgroundColor: "black",
-                        backgroundColor: 'black',
-                        borderColor: 'black',
-                        borderwidth: 2
-
-                    },
-                    {
-                        label: 'Gols sofridos',
-                        data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66],
-                        backgroundColor: 'red',
-                        borderColor: 'red',
-                        borderwidth: 2
-                    },
-                ],
-            },
-        },
-        {
-            id: "grafico2",
-            tipo: "line",
-            dados: {
-                labels: ['janeiro', 'fevereiro', 'Março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
-                datasets: [
-                    {
-                        label: 'gols',
-                        data: [16, 16, 16, 16., 17, 17, 18, 18, 19, 19, 19, 20],
-                        backgroundColor: 'black',
-                        borderColor: 'black',
-                        borderwidth: 2,
-                        fill: false,
-                    },
-                    {
-                        label: 'gols sofridos',
-                        data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66],
-                        borderColor: 'red',
-                        backgroundColor:'red',
-                        borderwidth: 2,
-                        fill: false,
-                    },
-                ],
-            },
-        },
-        {
-            id: "grafico3",
-            tipo: "line",
-            dados: {
-                labels: ['janeiro', 'fevereiro', 'Março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
-                datasets: [
-                    {
-                        label: "gols",
-                        data: [16, 16, 16, 16., 17, 17, 18, 18, 19, 19, 19, 20],
-                        backgroundColor: "black",
-                        backgroundColor: 'black',
-                        borderColor: 'black',
-                        borderwidth: 2
-
-                    },
-                    {
-                        label: 'gols sofridos',
-                        data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66],
-                        backgroundColor: 'red',
-                        borderColor: 'red',
-                        borderwidth: 2
-                    },
-                ],
-            },
-        },
-        {
-            id: "grafico4",
-            tipo: "line",
-            dados: {
-                labels: ['janeiro', 'fevereiro', 'Março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
-                datasets: [
-                    {
-                        label: 'gols',
-                        data: [16, 16, 16, 16., 17, 17, 18, 18, 19, 19, 19, 20],
-                        backgroundColor: 'black',
-                        borderColor: 'black',
-                        borderwidth: 2,
-                        fill: false,
-                    },
-                    {
-                        label: 'gols sofridos',
-                        data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66],
-                        backgroundColor: 'red',
-                        borderColor: 'red',
-                        borderwidth: 2,
-                        fill: false,
-                    },
-                ],
-            }
-            , options: {
-                animations: {
-                    tension: {
-                        duration: 1000,
-                        easing: 'linear',
-                        from: 1,
-                        to: 0,
-                        loop: true
-                    }
-                },
-                scales: {
-                    y: {
-                        min: 0,
-                        max: 100,
-                        beginAtZero: true
-                    }
-                }
-            }
-        }
-    ];
-
-    let Grafico = null;
-
-    function criarGrafico(idGrafico) {
-        const graficoSelecionado = graficos.find((g) => g.id === idGrafico);
-
-        if (Grafico !== null) {
-            Grafico.destroy();
-        }
-
-        const canvas = document.getElementById("Grafico").getContext("2d");
-        Grafico = new Chart(canvas, {
-            type: graficoSelecionado.tipo,
-            data: graficoSelecionado.dados,
-        });
+    if (Grafico !== null) {
+        Grafico.destroy();
     }
 
+    const canvas = document.getElementById("Grafico").getContext("2d");
+    Grafico = new Chart(canvas, {
+        type: graficoSelecionado.tipo,
+        data: graficoSelecionado.dados,
+    });
+}
+
+criarGrafico("grafico1");
+
+document.getElementById("Grafico1").addEventListener("click", () => {
     criarGrafico("grafico1");
+});
 
-    document.getElementById("Grafico1").addEventListener("click", () => {
-        criarGrafico("grafico1");
-    });
-
-    document.getElementById("Grafico2").addEventListener("click", () => {
-        criarGrafico("grafico2");
-    });
-    document.getElementById("Grafico3").addEventListener("click", () => {
-        criarGrafico("grafico3");
-    });
-    document.getElementById("Grafico4").addEventListener("click", () => {
-        criarGrafico("grafico4");
-    });
-
+document.getElementById("Grafico2").addEventListener("click", () => {
+    criarGrafico("grafico2");
+});
+document.getElementById("Grafico3").addEventListener("click", () => {
+    criarGrafico("grafico3");
+});
+document.getElementById("Grafico4").addEventListener("click", () => {
+    criarGrafico("grafico4");
+});
 
 </script>
 </html>

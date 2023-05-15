@@ -3,7 +3,10 @@ body {
     padding: 0;
     font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: white;
+    cursor: url('./cartao-vermelho.png'), auto;
+
 }
+
 
 .container {
     width: 80%;
