@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+ 
 }
 
 h1 {
@@ -51,8 +52,7 @@ button{
     transition: 0.4s ease-in-out;
 }
 button :hover{
-    background: linear-gradient(180deg, black
-    0%, rgba(214, 214, 214, 0.9) 100%);
+   
    cursor: pointer;
 }
 button a{
