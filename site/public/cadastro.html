@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/cadastro.css">
+  <link rel="stylesheet" href="./css/tel-inicial.css">
+    <link rel="icon"
+        href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
+   
+
+    <script src="./js/funcoes.js"></script>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+    <title>cadastre-se</title>
+</head>
+
+<body>
+
+
+
+    <div class="header">
+        <div class="container">
+            <a href="tela-inicial.html">
+                <h1 class="titulo"> <img width="75px" height="75px"
+                        src="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2"
+                        alt=""></h1>
+            </a>
+            <ul class="navbar">
+                <li class="agora">Inicial</li>
+                <li>
+                    <a href="estatisticas.html">Estatisticas</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <main>
+        <div id="teste">
+            <span class="cadastre-se">Cadastre-se</span>
+            <div>
+                <section class="inputs-container"><br>
+                    Nome:
+                    <input type="text" id="nome_input" placeholder="Seu nome"><br>
+                    Email:
+                    <input type="email" id="email_input" placeholder="Email">
+                    <div class="password-container">
+                        Senha:
+                        <input type="password" id="senha_input" placeholder="Senha">
+                       
+                        <div class="password-container">
+                           Confirmar Senha:
+                            <input type="password" id="confirmacao_senha_input" placeholder="Senha"><br>
+                    </div><br>
+
+                    <button  class="but-cadastro" id="but-cadastro" onclick="cadastrar()">Efetuar
+                            Cadastro</a></button>
+                </section>
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+                
+                <div id="div_erros_login">
+
+                </div>
+            </div><br>
+
+
+        </div>
+    </main>
+
+
+
+    <!--footer inicio-->
+    <div class="footer">
+        <div class="container">
+            <h4> Acompanhe-nos pelo instagram: @TRI<b><i>WORLD </i></b> <br><br> 2023
+                <br>
+                <span class="version">
+                    Diadema - São Paulo
+                </span>
+            </h4>
+        </div>
+    </div>
+    <!--footer fim-->
+
+</body>
+
+</html>
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        
+
+       
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            alert('Preencha os campos Por Favor')
+
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            
+            finalizarAguardar();
+            return false;
+
+        }else if(senhaVar != confirmacaoSenhaVar){
+            alert("Sua senha e confirmação de senha não estão iguais.")
+
+            finalizarAguardar();
+            return false;
+
+        }else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+           console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert('Redirecionando para a tela de login')
+
+               
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+            
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+          
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        //cardErro.style.display = "none"
+    }
+
+</script>

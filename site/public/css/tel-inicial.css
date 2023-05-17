@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: white;
+    cursor: url('./cartao-vermelho.png'), auto;
+
+}
+
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.header {
+    border-bottom: 3px solid #ffffffb0;
+    background-color: white;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+    font-style: oblique;
+}
+
+.agora {
+    font-weight: 800;
+}
+
+.navbar {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: black;
+}
+
+.banner
+{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: 300px;
+    text-align: center;
+    justify-content: center;
+
+}
+
+
+.nav
+{
+    display: flex;
+    height: 30%;
+    width: 25%;
+    justify-content: center;
+    position: relative;
+    top:    0%;
+    left: 25%;
+    
+    
+}
+.txt-h1 
+{
+    height: 80px;
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 64px;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;  
+}
+.nav-2
+{
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 60px;
+    position: relative;
+    top: 30%;
+    right: 12%;
+    text-align: center;
+
+    
+}.txt-p{
+
+    font-family: 'ABeeZee', sans-serif;
+    color: white;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;  
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.saiba_mais
+{
+  
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 32px;
+    width: 20%;
+    display: flex;
+    height: 100px;
+    margin: 0;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:0px;
+    left: 40%;
+    border-radius: 50px;
+    background: linear-gradient(180deg, red
+     0%, rgba(214, 214, 214, 0.9) 100%);
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.saiba_mais:hover {
+    background: linear-gradient(180deg, black
+    0%, rgba(214, 214, 214, 0.9) 100%);
+   cursor: pointer;
+}
+.saiba_mais a 
+{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-sobre_nos
+{
+    font-family: 'ABeeZee', sans-serif;
+    width: 100%;
+    position: relative;
+    top: 180px;
+    color: white;
+    text-align: center;
+}
+.sobre_nos .sobre-nos-txt
+{
+    font-size: 60px;
+    margin: 2%;
+}
+.sobre_nos .paragrafo-txt
+{
+    font-size: 30px;
+    margin: 2%;
+    
+}
+
+
+.footer {
+    background-color: red;
+    height: 125px;
+    color: #fff;
+    display: flex;
+    font-size: 15px;
+}
+
+.footer .container {
+    justify-content: center;
+    text-align: center;
+}
+
+.footer .container .version {
+    font-size: 12px;
+}
+
+
+h1 {
+margin: 0;
+font-size: 36px;
+font-weight: bold;
+color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;  
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../assets/morumbi2.jpg)fixed no-repeat;
+    background-size: cover;
+}
+.alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #e6005a 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
+  
+  .formulario .tipo_campo {
+    font-size: 20px;
+    font-weight: 600 !important;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    margin-bottom: 10px;
+    border: 2px solid #32b9cd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .btn {
+    font-family: "Barlow", sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #e6005a;
+    width: 120px;
+    align-self: center;
+    margin-top: 5px;
+  }
+  
+  .loading-div {
+    width: 50px;
+    margin: auto;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }

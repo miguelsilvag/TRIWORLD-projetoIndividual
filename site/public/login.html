@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/tel-inicial.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/funcoes.js"></script>
+    <link rel="icon"
+        href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
+    <title>login</title>
+</head>
+
+<body>
+
+
+    <div class="header">
+        <div class="container">
+            <a href="tela-inicial.html">
+                <h1 class="titulo"> <img width="75px" height="75px"
+                        src="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2"
+                        alt=""></h1>
+            </a>
+            <ul class="navbar">
+                <li class="agora">Inicial</li>
+                <li>
+                    <a href="./estatisticas.html">Estatisticas</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="./login.html">Login</a>
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <div id="form">
+            <section class="inputs-container"><br>
+                <h2>Login</h2><br>
+                <input type="email" id="email_input" placeholder="example@gmail.com">
+
+                <div class="password-container">
+                    <input type="password" id="senha_input" class="field-password" placeholder="********">
+                    <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
+                    <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
+                </div>
+            </section>
+
+            <section class="password-infos">
+                <div>
+                    <input type="checkbox">
+                    <span>Lembrar senha?</span>
+                </div>
+                <a href="#">Esqueceu sua senha?</a>
+            </section>
+            <button id="but-logar" onclick="entrar()">Login</button>
+            <footer>
+                <span class="password-infos"> Ainda não tem uma conta?<a href="cadastro.html">Cadastre-se</a></span>
+            </footer>
+
+        </div>
+    </main>
+
+
+    <div class="footer">
+        <div class="container">
+            <h4> Acompanhe-nos pelo instagram: @TRI<b><i>WORLD</i></b> <br><br> 2023
+                <br>
+                <span class="version">
+                    Diadema - São Paulo
+                </span>
+            </h4>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            alert('Preencha os campos Por Favor')
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        alert('Redirecionando para a tela de Dashboards')
+                        window.location = "./dash.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

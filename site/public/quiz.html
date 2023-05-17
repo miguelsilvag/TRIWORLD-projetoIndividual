@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>São Paulo FC Quiz</title>
+    <link rel="stylesheet" href="./assets/style/quiz.css">
+    <link rel="icon"
+        href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
+   <link rel="stylesheet" href="./css/tel-inicial.css">
+
+    <link rel="stylesheet" href="./css/quiz.css">
+</head>
+
+<body>
+
+
+    <div class="header">
+        <div class="container">
+            <a href="tela-inicial.html">
+                <h1 class="titulo"> <img width="75px" height="75px"
+                        src="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2"
+                        alt=""></h1>
+            </a>
+            <ul class="navbar">
+                <li class="agora">Inicial</li>
+
+                <li>|</li>
+                <li>
+                    <a href="perfil.html">Perfil</a>
+                </li>
+                <li>
+                    <a href="dash.html">Voltar</a>
+                </li>
+            </ul>
+        </div>
+    </div><br><br>
+
+
+    <h1>São Paulo FC Quiz</h1><br><br>
+    <form>
+        <label for="pergunta1">1) Qual foi o ano do primeiro Campeonato Brasileiro conquistado pelo São Paulo?</label>
+        <select id="pergunta1">
+            <option value="">Selecione a opção</option>
+            <option value="1977">1977</option>
+            <option value="1978">1978</option>
+            <option value="1979">1979</option>
+            <option value="1980">1980</option>
+        </select><br>
+
+        <label for="pergunta2">2) Qual foi o nome do técnico que conquistou a Libertadores e o Mundial em 2005?</label>
+        <select id="pergunta2">
+            <option value="">Selecione a opção</option>
+            <option value="Muricy Ramalho">Muricy Ramalho</option>
+            <option value="Paulo Autuori">Paulo Autuori</option>
+            <option value="Carlos Alberto Parreira">Carlos Alberto Parreira</option>
+            <option value="Emerson Leão">Emerson Leão</option>
+        </select><br>
+
+        <label for="pergunta3">3) Em que estádio o São Paulo faz seus jogos como mandante?</label>
+        <select id="pergunta3">
+            <option value="">Selecione a opção</option>
+            <option value="Estádio do Pacaembu">Estádio do Pacaembu</option>
+            <option value="Arena Corinthians">Arena Corinthians</option>
+            <option value="Estádio Morumbi">Estádio Morumbi</option>
+            <option value="Allianz Parque">Allianz Parque</option>
+        </select><br>
+
+        <label for="pergunta4">4) Quem é o maior artilheiro do São Paulo ?</label>
+        <select id="pergunta4">
+            <option value="">Selecione a opção</option>
+            <option value="Luis Fabiano">Luis Fabiano</option>
+            <option value="Calleri">Calleri</option>
+            <option value="Serginho Chulapa">Serginho Chulapa</option>
+            <option value="Rogerio Ceni">Rogerio Ceni</option>
+        </select><br>
+
+        <label for="pergunta5">5) Quantos mundiais o São Paulo tem ?</label>
+        <select id="pergunta5">
+            <option value="">Selecione a opção</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="Nenhum">Nenhum</option>
+        </select><br>
+
+        <label for="pergunta6">6) Qual o treinador que conquistou os três Brasileiros Consecutivos pelo São Paulo ?</label>
+        <select id="pergunta6">
+            <option value="">Selecione a opção</option>
+            <option value="rubens minelli">Rubens minneli</option>
+            <option value="tele santana">Tele santana</option>
+            <option value="Muricy ramalho">Muricy ramalho</option>
+            <option value="paulo Autuori">Paulo Autuori</option>
+        </select><br>
+
+        <label for="pergunta7">7) Quem foi Cícero Pompeu de Toledo ?</label>
+        <select id="pergunta7">
+            <option value="">Selecione a opção</option>
+            <option value="Arquiteto do Morumbi">Arquiteto do Morumbi</option>
+            <option value="Idolo e jogador do clube">Idolo e jogador do clube</option>
+            <option value="Conselheiro">Conselheiro</option>
+            <option value="Presidente do clube">Presidente do clube</option>
+        </select><br>
+
+        <label for="pergunta8">8) Quantos titulos internacionais o São Paulo tem?</label>
+        <select id="pergunta8">
+            <option value="">Selecione a opção</option>
+            <option value="12">12</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="13">13</option>
+        </select><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+
+</html>
+<script>
+
+    const form = document.querySelector('form')
+    const options = form.querySelectorAll('select')
+    const respostas = ['1977', 'Paulo Autuori', 'Estádio Morumbi', 'Serginho Chulapa', '3', 'Muricy ramalho', 'Presidente do clube', '12']
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+
+        let pontuação = 0
+
+        options.forEach((option, index) => {
+            if (option.value === respostas[index]) {
+                option.style.backgroundColor = '#00FF00'
+                option.style.color = '#FFFFFF'
+                pontuação++
+            } else {
+                option.style.backgroundColor = '#FF0000'
+                option.style.color = '#FFFFFF'
+            }
+        })
+
+        alert(`Você acertou ${pontuação} de ${respostas.length} perguntas!`)
+    })
+
+</script>
