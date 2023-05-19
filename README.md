@@ -7,14 +7,10 @@ O site contém login/cadastro,blog,historia, dashboard sobre os Estatisticas do 
 
 No site irei abordar principalmente sobre a história do clube, estatisticas, momentos marcantes e um quiz para responder as perguntas baseadas no Time
 
-
-🛠 Ferramentas Utilizadas:
-
-Luigi-HTML Luigi-CSS Luigi-Js Luigi-node Luigi-mysql
 📌 Em progresso.
 
 🛠 Site Totalmente feito em HTML, CSS e JS puro.
 
-🔗sem link no momento
+🔗sem link no momento 
 
 Site construido para o primeiro semestre de 2023 da faculdade SPTECH
