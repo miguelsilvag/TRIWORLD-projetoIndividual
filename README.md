@@ -1,6 +1,6 @@
 Site Individual - TRIWORLD 
 
-![morumbi_sao_paulo_corner_bandeira](https://github.com/miguelsilvag/TRIWORLD-projetoIndividual/assets/125837411/cb6b20f6-3ecb-4b1e-b3b3-541a461c12ee)
+![spfcXcor](https://github.com/miguelsilvag/TRIWORLD-projetoIndividual/assets/125837411/20c59cbe-3699-4d61-a76a-81cdc3970300)
 
 Este site é sobre oTime do São Paulo, um time de futebol Brasileiro que integrou grande parte da minha vida, o time foi um dos pilares para a trajetória dos times nas competições internacionais .Bom escolhi este tema para aborda sobre mim e apresentar sobre meu Time favorito.
 
