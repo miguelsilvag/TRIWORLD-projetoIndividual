@@ -112,9 +112,13 @@
         </select><br>
 
         <input type="submit" value="Enviar">
+
+        <div id="div_msg"></div>
     </form>
 
 </body>
+
+
 
 </html>
 <script>
@@ -140,6 +144,17 @@
         })
 
         alert(`Você acertou ${pontuação} de ${respostas.length} perguntas!`)
+
+
+        if(pontuação <= 3){
+            div_msg.innerHTML=`Poxa, tente melhorar <img  width="400px" src="https://th.bing.com/th/id/OIP.n0m3MwKFMIQQlze5f1Nu1AHaDn?pid=ImgDet&rs=1" alt="">`
+
+        }else if(pontuação <=7){
+            div_msg.innerHTML=`Estamos quase la <img  width="400px" src="https://th.bing.com/th/id/R.644c92d8d990460bb2398a21b434080c?rik=KFSzhRgI71MfTw&pid=ImgRaw&r=0" alt=""> `
+        }else{
+            div_msg.innerHTML=`Parabens você acertou tudo <img  width="400px" src="https://www.arqtricolor.com/wp-content/uploads/2022/08/calleri-sao-paulo-15.jpg" alt="">`
+        }
+
     })
 
 </script>

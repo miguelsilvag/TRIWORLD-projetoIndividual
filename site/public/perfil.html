@@ -16,7 +16,14 @@
 
 <body>
 
-
+    <style>
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
 
     <body>
 
@@ -26,20 +33,23 @@
             <div class="testando">
                 <h1>Perfil do Usuário</h1>
                 <h1>Meu Perfil</h1>
-
-                <img id="perfil">
                 <form>
-                    <label for="imagem">Escolha uma imagem:</label><br>
-                    <input type="file" id="imagem" name="imagem"><br>
-                    <input type="submit" value="Salvar Imagem"><br>
-                </form>
+                    <h1>Upload de Foto de Perfil</h1>
 
-                <h2>Miguel Silva</h2>
-                <p>Idade: 20 anos</p>
-                <p>E-mail: exemplo@exemplo.com</p>
-                <p> Jogador favorito: Calleri</p>
-                <p>Cidade: São Paulo</p>
-                <p>País: Brasil</p>
+                    <img src="" id="preview" class="profile-image" alt="Preview da Foto de Perfil">
+                    <input type="file" id="profile-pic" accept="image/*">
+                </form>
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+
+                <p> <span id="b_usuario2">email</span>!</h3>
+                </p>
+
+                <p> Jogador favorito:<span id="b_usuario3">jogador</span>!</p>
+
+                <p>Cidade: <span id="b_usuarioS">cidade</span>!</p>
+
+                <p>País: Brasil</p><br>
+
                 <button onclick="voltar()"><a style="color: white
                 ;" href="./dash.html"> Voltar</a></button>
             </div>
@@ -51,13 +61,29 @@
 
 
 <script>
-    // Adiciona um evento para quando o usuário selecionar uma nova imagem
-    document.querySelector('#imagem').addEventListener('change', function (event) {
-        // Pega a imagem selecionada
-        var imagem = event.target.files[0];
-        // Cria um objeto URL com a URL da imagem selecionada
-        var url = URL.createObjectURL(imagem);
-        // Atualiza a imagem do perfil com a nova imagem
-        document.querySelector('#perfil').setAttribute('src', url);
+
+
+    const input = document.getElementById('profile-pic');
+    const preview = document.getElementById('preview');
+
+    input.addEventListener('change', () => {
+        const file = input.files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener('load', () => {
+            preview.setAttribute('src', reader.result);
+        });
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
     });
+
+
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario2.innerHTML = sessionStorage.EMAIL_USUARIO;
+    b_usuario3.innerHTML = sessionStorage.JOGADOR_USUARIO;
+    b_usuarioS.innerHTML = sessionStorage.CIDADE_USUARIO;
+
 </script>

@@ -4,9 +4,14 @@
 <head>
 	<title>Estatisticas</title>
 	<link rel="stylesheet" href="./css/tel-inicial.css">
+	<link rel="stylesheet" href="./css/login.css">
+	
 	<link rel="icon"
 		href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
 	<link rel="stylesheet" href="./css/estatistica.css">
+	<link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -36,106 +41,25 @@
 
 	<main>
 
-	<h1>Estatísticas do São Paulo FC 2020 ate 2022</h1>
+	<div id="form">
+		<section class="inputs-container"><br>
+			<h2>Estatisticas</h2><br>
+			<input type="text" id="tipo_input" placeholder="Campeonato">
 
+			<div class="password-container">
+				<input type="number" id="ano_input" class="field-password" placeholder="Ano"><br><br>
+				<i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
+				<i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
+				<input type="text" id="posição_input" placeholder="Posição">
+			</div>
+		</section>
 
+		
+		<button id="but-logar" onclick="listar()">Ver estatisticas</button>
+	
 
-		<h2>Campeonato Brasileiro</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>Ano</th>
-					<th>Posição</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1977</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>1986</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>1991</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>2006</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>2007</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>2008</td>
-					<td>Campeão</td>
-				</tr>
-			</tbody>
-		</table>
-		<h2>Copa Libertadores da América</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>Ano</th>
-					<th>Posição</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1992</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>1993</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>2005</td>
-					<td>Campeão</td>
-				</tr>
-			</tbody>
-		</table>
-		<h2>Copa Sul-Americana</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>Ano</th>
-					<th>Posição</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>2012</td>
-					<td>Campeão</td>
-				</tr>
-			</tbody>
-		</table>
-		<h2>Mundial de clubes</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>Ano</th>
-					<th>Posição</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1992</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>1993</td>
-					<td>Campeão</td>
-				</tr>
-				<tr>
-					<td>2005</td>
-					<td>Campeão</td>
-				</tr>
-			</tbody>
-		</table>
+	</div>
+		
 	</main>
 
 	<!--footer inicio-->
@@ -153,3 +77,79 @@
 </body>
 
 </html>
+<script>
+
+
+    function listar() {
+       
+
+        var tipoVar = tipo_input.value;
+        var anoVar = ano_input.value;
+		var posiçãoVar = posição_input.value
+
+        if (tipoVar == "" || anoVar == "" || posiçãoVar == "") {
+            alert('Preencha os campos Por Favor')
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            alert('teste')
+        }
+
+       
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                tipoServer: tipoVar,
+                anoServer: anoVar,
+				posiçãoServer: posiçãoVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.TIPO_USUARIO = json.tipo;
+                    sessionStorage.ANO_USUARIO = json.ano;
+                    sessionStorage.POSIÇÃO_USUARIO = json.posição;
+                    
+
+                    setTimeout(function () {
+                        alert('Redirecionando para a tela de Dashboards')
+                        window.location = "./quiz.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+              
+
+                resposta.text().then(texto => {
+                    
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+	
+   
+
+</script>

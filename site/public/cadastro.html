@@ -65,16 +65,17 @@
                            Confirmar Senha:
                             <input type="password" id="confirmacao_senha_input" placeholder="Senha"><br>
                     </div><br>
+                    jogador favorito
+                    <input type="text" id="jogador_input" placeholder="jogador favorito"><br>
+
+                    Cidade
+                    <input type="text" id="cidade_input" placeholder="cidade"><br>
 
                     <button  class="but-cadastro" id="but-cadastro" onclick="cadastrar()">Efetuar
                             Cadastro</a></button>
                 </section>
 
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-                
-                <div id="div_erros_login">
+           
 
                 </div>
             </div><br>
@@ -111,11 +112,13 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var jogadorVar = jogador_input.value
+        var cidadeVar = cidade_input.value
         
 
        
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || jogadorVar == "" || cidadeVar == "") {
             alert('Preencha os campos Por Favor')
 
             cardErro.style.display = "block"
@@ -145,7 +148,9 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                jogadorServer:jogadorVar,
+                cidadeServer: cidadeVar
             })
         }).then(function (resposta) {
 
