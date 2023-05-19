@@ -1,9 +1,13 @@
-var timeModel = require("../models/estatisticasModel");
+var estatisticasModel = require("../models/estatisticasModel");
 
 var sessoes = [];
 
 function listar(req, res) {
-    estatisticas.listar()
+    var tipo = req.body.tipoServer;
+    var ano = req.body.anoServer;
+    var posicao = req.body.posiçãoServer;
+
+    estatisticasModel.listar(tipo, ano, posicao)
     .then(function (resultado) {
         if(resultado.length > 0) {
             res.status(200).json(resultado);
@@ -22,6 +26,6 @@ function listar(req, res) {
 
 
 module.exports = {
-    listar,
+    listar
     
 }

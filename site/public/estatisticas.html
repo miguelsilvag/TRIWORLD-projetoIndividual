@@ -18,7 +18,7 @@
 
 	<div class="header">
 		<div class="container">
-			<a href="tela-inicial.html">
+			<a href="./index.html">
 				<h1 class="titulo"> <img width="75px" height="75px"
 						src="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2"
 						alt=""></h1>
@@ -47,7 +47,7 @@
 			<input type="text" id="tipo_input" placeholder="Campeonato">
 
 			<div class="password-container">
-				<input type="number" id="ano_input" class="field-password" placeholder="Ano"><br><br>
+				<input  id="ano_input" class="field-password" placeholder="Ano"><br><br>
 				<i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
 				<i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
 				<input type="text" id="posição_input" placeholder="Posição">
@@ -89,19 +89,18 @@
 
         if (tipoVar == "" || anoVar == "" || posiçãoVar == "") {
             alert('Preencha os campos Por Favor')
-            cardErro.style.display = "block"
+         
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
             return false;
         }
         else {
-            alert('teste')
-        }
+            alert('Estamos validando')
 
-       
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
+		}
+    
+		
+		fetch("/estatisticas/listar", {
+            method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -126,7 +125,7 @@
                     
 
                     setTimeout(function () {
-                        alert('Redirecionando para a tela de Dashboards')
+                        alert('Redirecionando para a tela com as estatisticas')
                         window.location = "./quiz.html";
                     }, 1000); // apenas para exibir o loading
 
@@ -138,7 +137,6 @@
 
                 resposta.text().then(texto => {
                     
-                    finalizarAguardar(texto);
                 });
             }
 
@@ -147,7 +145,8 @@
         })
 
         return false;
-    }
+        }
+    
 
 	
    

@@ -20,6 +20,12 @@ ano date,
 posição varchar(50)
 );
 
+INSERT INTO estatisticas VALUES
+    (null, "campeonato brasileiro", '2005-01-01', 'Campeão');
+
+
+INSERT INTO estatisticas VALUES
+    (null, "campeonato brasileiro", '2005-03-03', 'vice');
 
 select * from estatisticas;
 
