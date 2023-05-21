@@ -7,7 +7,7 @@ main {
 main #form {
     margin-top: 10px;
     margin-bottom: 40px;
-    background-color: rgba(255, 0, 0, 0.80);
+    background-color: transparent;
     border-radius: 10px;
     padding: 2%;
     display: flex;
@@ -15,6 +15,7 @@ main #form {
     align-items: center;
     width: 30vw;
     height: 45%;
+    backdrop-filter: blur(100px);
 
 }
 

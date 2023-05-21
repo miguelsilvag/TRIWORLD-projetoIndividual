@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>São Paulo FC Quiz</title>
-    <link rel="stylesheet" href="./assets/style/quiz.css">
+  
     <link rel="icon"
         href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
-   <link rel="stylesheet" href="./css/tel-inicial.css">
+    <link rel="stylesheet" href="./css/tel-inicial.css">
 
     <link rel="stylesheet" href="./css/quiz.css">
 </head>
@@ -17,7 +17,7 @@
 
     <div class="header">
         <div class="container">
-            <a href="tela-inicial.html">
+            <a href="index.html">
                 <h1 class="titulo"> <img width="75px" height="75px"
                         src="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2"
                         alt=""></h1>
@@ -30,7 +30,7 @@
                     <a href="perfil.html">Perfil</a>
                 </li>
                 <li>
-                    <a href="dash.html">Voltar</a>
+                    <a href="estatisticas.html">Voltar</a>
                 </li>
             </ul>
         </div>
@@ -84,7 +84,8 @@
             <option value="Nenhum">Nenhum</option>
         </select><br>
 
-        <label for="pergunta6">6) Qual o treinador que conquistou os três Brasileiros Consecutivos pelo São Paulo ?</label>
+        <label for="pergunta6">6) Qual o treinador que conquistou os três Brasileiros Consecutivos pelo São Paulo
+            ?</label>
         <select id="pergunta6">
             <option value="">Selecione a opção</option>
             <option value="rubens minelli">Rubens minneli</option>
@@ -146,13 +147,13 @@
         alert(`Você acertou ${pontuação} de ${respostas.length} perguntas!`)
 
 
-        if(pontuação <= 3){
-            div_msg.innerHTML=`Poxa, tente melhorar <img  width="400px" src="https://th.bing.com/th/id/OIP.n0m3MwKFMIQQlze5f1Nu1AHaDn?pid=ImgDet&rs=1" alt="">`
+        if (pontuação <= 3) {
+            div_msg.innerHTML = `Poxa, tente melhorar <img  width="400px" src="https://th.bing.com/th/id/OIP.n0m3MwKFMIQQlze5f1Nu1AHaDn?pid=ImgDet&rs=1" alt="">`
 
-        }else if(pontuação <=7){
-            div_msg.innerHTML=`Estamos quase la <img  width="400px" src="https://th.bing.com/th/id/R.644c92d8d990460bb2398a21b434080c?rik=KFSzhRgI71MfTw&pid=ImgRaw&r=0" alt=""> `
-        }else{
-            div_msg.innerHTML=`Parabens você acertou tudo <img  width="400px" src="https://www.arqtricolor.com/wp-content/uploads/2022/08/calleri-sao-paulo-15.jpg" alt="">`
+        } else if (pontuação <= 7) {
+            div_msg.innerHTML = `Estamos quase la <img  width="400px" src="https://th.bing.com/th/id/R.644c92d8d990460bb2398a21b434080c?rik=KFSzhRgI71MfTw&pid=ImgRaw&r=0" alt=""> `
+        } else {
+            div_msg.innerHTML = `Parabens você acertou tudo <img  width="400px" src="https://www.arqtricolor.com/wp-content/uploads/2022/08/calleri-sao-paulo-15.jpg" alt="">`
         }
 
     })

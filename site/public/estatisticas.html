@@ -5,16 +5,18 @@
 	<title>Estatisticas</title>
 	<link rel="stylesheet" href="./css/tel-inicial.css">
 	<link rel="stylesheet" href="./css/login.css">
-	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<link rel="icon"
 		href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
 	<link rel="stylesheet" href="./css/estatistica.css">
 	<link
-    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+		href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
 </head>
 
 <body>
+
+
 
 	<div class="header">
 		<div class="container">
@@ -26,14 +28,14 @@
 			<ul class="navbar">
 				<li class="agora">Inicial</li>
 				<li>
-					<a href="estatisticas.html">Estatisticas</a>
+					<a href="perfil.html">Perfil
 				</li>
 				<li>|</li>
 				<li>
-					<a href="login.html">Login</a>
+					<a href="quiz">Quiz</a>
 				</li>
 				<li>
-					<a href="blog.html">Blog</a>
+					<a href="login.html">Sair</a>
 				</li>
 			</ul>
 		</div>
@@ -41,26 +43,39 @@
 
 	<main>
 
-	<div id="form">
-		<section class="inputs-container"><br>
-			<h2>Estatisticas</h2><br>
-			<input type="text" id="tipo_input" placeholder="Campeonato">
+		<div id="form">
+			<section class="inputs-container"><br>
+				<h2>Estatisticas</h2><br>
+				<input type="text" id="tipo_input" placeholder="Campeonato">
 
-			<div class="password-container">
-				<input  id="ano_input" class="field-password" placeholder="Ano"><br><br>
-				<i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
-				<i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
-				<input type="text" id="posição_input" placeholder="Posição">
+				<div class="password-container">
+					<input id="ano_input" class="field-password" placeholder="Ano"><br><br>
+					<i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
+					<i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
+					<input type="text" id="posição_input" placeholder="Posição">
+				</div>
+			</section>
+
+
+			<button id="but-logar" onclick="listar()">Ver estatisticas</button>
+
+
+		
+			<div class="charts">
+				<div class="chart">
+					<h2>Grafico</h2>
+					<div>
+						<canvas id="myChartCanvas1"></canvas>
+					</div>
+				</div>
+			
 			</div>
-		</section>
 
-		
-		<button id="but-logar" onclick="listar()">Ver estatisticas</button>
-	
+		</div>
 
-	</div>
-		
 	</main>
+
+
 
 	<!--footer inicio-->
 	<div class="footer">
@@ -80,75 +95,273 @@
 <script>
 
 
-    function listar() {
-       
+	function listar() {
 
-        var tipoVar = tipo_input.value;
-        var anoVar = ano_input.value;
+
+		var tipoVar = tipo_input.value;
+		var anoVar = ano_input.value;
 		var posiçãoVar = posição_input.value
 
-        if (tipoVar == "" || anoVar == "" || posiçãoVar == "") {
-            alert('Preencha os campos Por Favor')
-         
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            return false;
-        }
-        else {
-            alert('Estamos validando')
+		if (tipoVar == "" || anoVar == "" || posiçãoVar == "") {
+			alert('Preencha os campos Por Favor')
+
+			mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+			return false;
+		}
+		else {
+			alert('Estamos validando')
 
 		}
-    
-		
+
+
 		fetch("/estatisticas/listar", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                tipoServer: tipoVar,
-                anoServer: anoVar,
+			method: "post",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				tipoServer: tipoVar,
+				anoServer: anoVar,
 				posiçãoServer: posiçãoVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+			})
+		}).then(function (resposta) {
+			console.log("ESTOU NO THEN DO entrar()!")
 
-            if (resposta.ok) {
-                console.log(resposta);
+			if (resposta.ok) {
+				console.log(resposta);
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
+				resposta.json().then(json => {
+					console.log(json);
+					console.log(JSON.stringify(json));
 
-                    sessionStorage.TIPO_USUARIO = json.tipo;
-                    sessionStorage.ANO_USUARIO = json.ano;
-                    sessionStorage.POSIÇÃO_USUARIO = json.posição;
-                    
+					sessionStorage.TIPO_USUARIO = json.tipo;
+					sessionStorage.ANO_USUARIO = json.ano;
+					sessionStorage.POSIÇÃO_USUARIO = json.posição;
 
-                    setTimeout(function () {
-                        alert('Redirecionando para a tela com as estatisticas')
-                        window.location = "./quiz.html";
-                    }, 1000); // apenas para exibir o loading
 
-                });
+					setTimeout(function () {
+						alert('Aqui estão algumas estatisticas')
 
-            } else {
+						fetch("/estatisticas/listar", {
+							method: "post",
+							headers: {
+								"Content-Type": "application/json"
+							},
+							body: JSON.stringify({
+								tipoServer: tipoVar,
+								anoServer: anoVar,
+								posiçãoServer: posiçãoVar
+							})
+						}).then(function (resposta) {
+							console.log("ESTOU NO THEN DO entrar()!")
+							
+							let proximaAtualizacao;
 
-              
+							window.onload = obterDadosGraficos();
 
-                resposta.text().then(texto => {
-                    
-                });
-            }
+							function obterDadosGraficos() {
+								obterDadosGrafico(1)
+							}
 
-        }).catch(function (erro) {
-            console.log(erro);
-        })
+							function exibirAquario(idteste) {
+								let todosOsGraficos = document.getElementById("graficos")
 
-        return false;
-        }
-    
+								for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
+									// exibindo - ou não - o gráfico
+									let elementoAtual = document.getElementById(`grafico${i}`)
+									if (elementoAtual.classList.contains("display-block")) {
+										elementoAtual.classList.remove("display-block")
+									}
+									elementoAtual.classList.add("display-none")
+								}
+							}
 
-	
-   
+							// exibindo - ou não - o gráfico
+
+
+							// O gráfico é construído com três funções:
+							// 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+							// 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+							// 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+
+							// Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+							// para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+							// A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+
+							//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+							//     Para ajustar o "select", ajuste o comando sql em src/models
+						
+							function obterDadosGrafico(idteste) {
+
+								if (proximaAtualizacao != undefined) {
+									clearTimeout(proximaAtualizacao);
+								}
+
+								fetch(`/estatisticas/listar/${idteste}`, { cache: 'no-store' }).then(function (response) {
+									
+									if (response.ok) {
+										response.json().then(function (resposta) {
+											console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+											resposta.reverse();
+
+											plotarGrafico(resposta, idteste);
+										});
+									} else {
+										console.error('Nenhum dado encontrado ou erro na API');
+									}
+								})
+									.catch(function (error) {
+										console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+									});
+							}
+
+							// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+							// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+							// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+							function plotarGrafico(resposta, idteste) {
+
+								console.log('iniciando plotagem do gráfico...');
+
+								// Criando estrutura para plotar gráfico - labels
+								let labels = [];
+
+								// Criando estrutura para plotar gráfico - dados
+								const graficos = [
+									{
+										id: "grafico1",
+										tipo: "bar",
+										dados: {
+											labels: [],
+											datasets: [
+												{
+													label: "Gols Pró ",
+													data: [],
+													backgroundColor: "white",
+													backgroundColor: '#008000',
+													borderColor: '#008000',
+													borderwidth: 2
+
+												},
+												{
+													label: 'gols Contra ',
+													data: [],
+													backgroundColor: 'white',
+													borderColor: '#36A2EB',
+													borderwidth: 2
+												},
+												{
+													label: ' Media de publico ',
+													data: [],
+													backgroundColor: 'white',
+													borderColor: '#36A2EB',
+													borderwidth: 2
+												},
+											],
+										},
+									},
+									
+								
+									
+								];
+
+								var dados = {
+									labels: [],
+									datasets: [
+										{
+											label: "Gols Pró",
+											data: [],
+											backgroundColor: "white",
+											backgroundColor: 'black',
+											borderColor: '#008000',
+											borderwidth: 2
+
+										},
+										{
+											label: "Gols contra",
+											data: [],
+											backgroundColor: "white",
+											backgroundColor: 'white',
+											borderColor: '#36A2EB',
+											borderwidth: 2
+										},
+										{
+											label: "Media de Publico",
+											data: [],
+											backgroundColor: "blue",
+											backgroundColor: 'blue',
+											borderColor: '#008000',
+											borderwidth: 2
+
+										},
+									]
+								}
+								console.log('----------------------------------------------')
+								console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+								console.log(resposta)
+
+								// Inserindo valores recebidos em estrutura para plotar o gráfico
+								for (i = 0; i < resposta.length; i++) {
+									var registro = resposta[i];
+									dados.labels.push(registro.golsMarcados);
+									dados.datasets[0].data.push(registro.golsSofridos);
+									dados.datasets[1].data.push(registro.mediaDePublico);
+								}
+
+								console.log('----------------------------------------------')
+								console.log('O gráfico será plotado com os respectivos valores:')
+								console.log('Labels:')
+								console.log(labels)
+								console.log('Dados:')
+								console.log(dados.datasets)
+								console.log('----------------------------------------------')
+
+								// Criando estrutura para plotar gráfico - config
+								const config = {
+									type: 'bar',
+									data: dados,
+								};
+
+								// Adicionando gráfico criado em div na tela
+								let myChart = new Chart(
+									document.getElementById(`myChartCanvas${idteste}`),
+									config
+								);
+
+								setTimeout(() => atualizarGrafico(idteste, dados, myChart), 2000);
+							}
+
+
+							// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+							// buscando a última medida inserida em tabela contendo as capturas, 
+
+							//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+							//     Para ajustar o "select", ajuste o comando sql em src/models
+							
+
+							
+						}, 1000); // apenas para exibir o loading
+
+					});
+
+				})
+			} else {
+
+
+
+				resposta.text().then(texto => {
+
+				});
+			}
+
+		}).catch(function (erro) {
+			console.log(erro);
+		})
+
+		return false;
+	}
+
+
+
+
 
 </script>

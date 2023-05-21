@@ -29,4 +29,30 @@ INSERT INTO estatisticas VALUES
 
 select * from estatisticas;
 
-drop table estatisticas;
+
+
+create table teste(
+idteste int primary key auto_increment,
+golsMarcados varchar(45),
+golsSofridos varchar(45),
+mediaDePublico varchar(45)
+);
+
+insert into teste values 
+(null,'30','20','200'),
+(null,'100','10','200'),
+(null,'80','50','5');
+
+
+insert into teste values 
+(null,'27','20','18'),
+(null,'10','10','175'),
+(null,'12','50','53');
+
+
+insert into teste values 
+(null,'100','20','18'),
+(null,'170','10','175'),
+(null,'12','50','53');
+
+select * from teste;

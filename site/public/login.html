@@ -25,9 +25,7 @@
             </a>
             <ul class="navbar">
                 <li class="agora">Inicial</li>
-                <li>
-                    <a href="./estatisticas.html">Estatisticas</a>
-                </li>
+
                 <li>|</li>
                 <li>
                     <a href="./login.html">Login</a>
@@ -128,11 +126,11 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    
+
 
                     setTimeout(function () {
-                        alert('Redirecionando para a tela de Dashboards')
-                        window.location = "./dash.html";
+                        alert('Redirecionando para a tela do usuario')
+                        window.location = "./estatisticas.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
