@@ -8,8 +8,6 @@ Este site é sobre o Time do São Paulo, um time de futebol Brasileiro que integ
 
 O site contém login/cadastro,blog,historia, dashboard sobre os Estatisticas do clube e uma tela de quiz interativa para responder umas perguntas sobre o Time.
 
-No site irei abordar principalmente sobre a história do clube, estatisticas, momentos marcantes e um quiz para responder as perguntas baseadas no Time
-
 📌 Em progresso.
 
 🛠 Site Totalmente feito em HTML, CSS e JS puro.
