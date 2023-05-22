@@ -15,3 +15,6 @@ O site contém login/cadastro,blog,historia, dashboard sobre os Estatisticas do 
 🔗sem link no momento 
 
 Site construido para o primeiro semestre de 2023 da faculdade SPTECH
+
+DIADEMA-SÃO PAULO
+
