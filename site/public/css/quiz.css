@@ -85,7 +85,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left:15% ;
+ 
 }
 
 .quiz .saopaulo {
@@ -104,7 +104,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url(../assets/spfcXcor.jpg);
+    backdrop-filter: blur(100px);
     background-size: cover;
     border-radius: 15px;
     width: 400px;

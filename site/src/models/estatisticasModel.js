@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function listar(tipo, ano, posicao) {
-    var instrucao = `SELECT * FROM estatisticas WHERE tipo = '${tipo}'`;
+    var instrucao = `SELECT * FROM estatisticas WHERE tipo = '${tipo}' AND ano = '${ano}' AND posição = '${posicao}'`;
     return database.executar(instrucao);
 }
 

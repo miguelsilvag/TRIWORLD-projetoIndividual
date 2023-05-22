@@ -109,8 +109,9 @@ function cadastrarPontuacao(req, res) {
     // Faça as validações dos valores
     if (pontos == undefined) {
         res.status(400).send("Seu pontos está undefined!");
-    } else if (percentual == undefined) {
-        res.status(400).send("Sua percentual está undefined!");
+    // } else if (percentual == undefined) {
+    //     res.status(400).send("Sua percentual está undefined!");
+    // } 
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
