@@ -29,7 +29,15 @@ INSERT INTO estatisticas VALUES
 
 select * from estatisticas;
 
+CREATE TABLE Pontuacao (
+	idPontuacao INT PRIMARY KEY AUTO_INCREMENT,
+    fkusuario INT, 
+    FOREIGN KEY (fkusuario) REFERENCES usuario(idusuario),
+	pontuacao INT,
+    perPont FLOAT
+);
 
+select * from pontuacao;
 
 create table teste(
 idteste int primary key auto_increment,
@@ -56,3 +64,11 @@ insert into teste values
 (null,'12','50','53');
 
 select * from teste;
+
+
+drop table estatisticas;
+
+
+
+
+

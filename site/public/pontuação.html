@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/blog.css">
+   <link rel="stylesheet" href="css/login.css">
+
+
+</head>
+
+<body>
+<main>
+    <body scroll="si" style="overflow: hidden" onload="updatePontos(), validarSessao()"></body>
+
+    <div class="header">
+        <div class="container">
+            <a href="./index.html">
+                <h1 class="titulo"> <img width="75px" height="75px"
+                        src="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2"
+                        alt=""></h1>
+            </a>
+            <ul class="navbar">
+                <li class="agora">Inicial</li>
+
+                <li>|</li>
+                <li>
+                    <a href="./login.html">Login</a>
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <div class="Pontuacao">
+            <div class="card">
+                <h1>Pontuação geral do quiz</h1>
+                <div class="card-pontos">
+                    <li>
+                        <table class="bordered, striped e centered highlight e responsive-table" id="infos" width="467"
+                            border="1px" bgcolor="#000">
+                            <tr>
+                                <th>Jogador</th>
+                                <th>Pontuação</th>
+                                <th>Percentual</th>
+                            </tr>
+                        </table>
+                </div>
+            </div>
+            </main>
+</body>
+
+</html>
+
+
+</html>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function updatePontos() {
+        //aguardar();
+        fetch("/quiz/listarPontuacao").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    throw "Nenhum resultado encontrado!!";
+                }
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var table = document.getElementById("infos");
+                    for (var contador = 0; contador < resposta.length; contador++) {
+                        var publicacao = resposta[contador];
+                        // criando e manipulando elementos do HTML via JavaScript
+
+
+                        // // cria um novo elemento div
+                        // e dá à ele conteúdo
+                        var tdNome = document.createElement("td");
+                        var tdpontuacao = document.createElement("td");
+                        var tdpercentualPontuacao = document.createElement("td");
+                        var tableTr = document.createElement("tr");
+                        var hr = document.createElement("hr");
+
+                        tdNome.className = "text"
+                        tdpontuacao.className = "text"
+                        tdpercentualPontuacao.className = "text"
+
+                        tdNome.innerHTML = `${publicacao.nome}`;
+                        tdpontuacao.innerHTML = `${publicacao.pontuacao}pts.`;
+                        tdpercentualPontuacao.innerHTML = `${publicacao.percentualPontuacao}%`;
+
+
+                        // (APPENDCHILD) Cria um novo elemento de parágrafo e adiciona-o ao final do documento
+
+                        tableTr.appendChild(tdNome);
+                        tableTr.appendChild(tdpontuacao);
+                        tableTr.appendChild(tdpercentualPontuacao);
+                        table.appendChild(tableTr);
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                swal("Ops", "Houve um erro na API!", "warning");
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+
+</script>

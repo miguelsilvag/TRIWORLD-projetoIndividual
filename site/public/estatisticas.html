@@ -32,7 +32,7 @@
 				</li>
 				<li>|</li>
 				<li>
-					<a href="quiz">Quiz</a>
+					<a href="quiz.html">Quiz</a>
 				</li>
 				<li>
 					<a href="login.html">Sair</a>
@@ -303,8 +303,9 @@
 								for (i = 0; i < resposta.length; i++) {
 									var registro = resposta[i];
 									dados.labels.push(registro.golsMarcados);
-									dados.datasets[0].data.push(registro.golsSofridos);
-									dados.datasets[1].data.push(registro.mediaDePublico);
+									dados.datasets[0].data.push(registro.golsMarcados);
+									dados.datasets[1].data.push(registro.golsSofridos);
+									dados.datasets[2].data.push(registro.mediaDePublico);
 								}
 
 								console.log('----------------------------------------------')
