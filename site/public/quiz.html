@@ -25,7 +25,9 @@
             </a>
             <ul class="navbar">
                 <li class="agora">Inicial</li>
-
+                <li>
+                    <a href="pontuação.html">Pontuações</a>
+                </li>
                 <li>|</li>
                 <li>
                     <a href="perfil.html">Perfil</a>
@@ -234,9 +236,6 @@
     var anterior = 0;
     var proxima = 0;
     var pontos = 0;
-    var percentual = 0;
-    var img = '';
-    var msg = '';
     var radios = [];
     var respostascorretas = ["22", "3", "3", "6", "0", "serginho chulapa", "rogerio ceni", "corinthians"];
     var idUsuario = sessionStorage.ID_USUARIO;
@@ -319,21 +318,7 @@
                 }
             }
             pontos = Usuario * 10;
-            percentual = Usuario / respostascorretas.length * 100;
 
-            if (Usuario == 0 || Usuario <= 4) {
-                imageUrl: '',
-                    msg = ` <span class="text"> 
-                            Poderia ter sido melhor <b>${idUsuario}</b> 😔😔, sua pontuação foi de
-                            <b>${pontos}</b> pontos, que equivale à <b>${percentual.toFixed(2)}%</b> do Quiz
-                        </span>`;
-            } else {
-                imageUrl: '',
-                    msg = ` <span class="text">
-                            PARÁBENS  <b>${idUsuario}</b> 🥳🥳, você é FÃ NÚMERO 1 do são paulo  e sua pontuação foi de
-                            <b>${pontos}</b> pontos, que equivale à<b> ${percentual.toFixed(2)}%</b> do Quiz
-                        </span>`;
-            }
             fetch("/usuarios/cadastrarPontuacao", {
                 method: "POST",
                 headers: {
@@ -345,7 +330,7 @@
                     // idUsuarioServer: idUsuario,
                     idUsuarioServer: sessionStorage.ID_USUARIO,
                     pontosServer: pontos,
-                    // percentualServer: percentual.toFixed(2)
+
                 })
             }).then(function (resposta) {
 

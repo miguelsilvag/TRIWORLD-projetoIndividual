@@ -60,7 +60,7 @@
 			<button id="but-logar" onclick="listar()">Ver estatisticas</button>
 
 
-		
+
 			<div class="charts">
 				<div class="chart">
 					<h2>Grafico</h2>
@@ -68,7 +68,7 @@
 						<canvas id="myChartCanvas1"></canvas>
 					</div>
 				</div>
-			
+
 			</div>
 
 		</div>
@@ -141,7 +141,7 @@
 
 					setTimeout(function () {
 						alert('Aqui estão algumas estatisticas')
-
+						//função criada para emitir grafico apos validação do conteudo inserido pelo usuario
 						fetch("/estatisticas/listar", {
 							method: "post",
 							headers: {
@@ -154,7 +154,7 @@
 							})
 						}).then(function (resposta) {
 							console.log("ESTOU NO THEN DO entrar()!")
-							
+
 							let proximaAtualizacao;
 
 							window.onload = obterDadosGraficos();
@@ -190,7 +190,7 @@
 
 							//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 							//     Para ajustar o "select", ajuste o comando sql em src/models
-						
+
 							function obterDadosGrafico(idteste) {
 
 								if (proximaAtualizacao != undefined) {
@@ -198,7 +198,7 @@
 								}
 
 								fetch(`/estatisticas/listar/${idteste}`, { cache: 'no-store' }).then(function (response) {
-									
+
 									if (response.ok) {
 										response.json().then(function (resposta) {
 											console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -259,9 +259,9 @@
 											],
 										},
 									},
-									
-								
-									
+
+
+
 								];
 
 								var dados = {
@@ -337,9 +337,9 @@
 
 							//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 							//     Para ajustar o "select", ajuste o comando sql em src/models
-							
 
-							
+
+
 						}, 1000); // apenas para exibir o loading
 
 					});

@@ -67,13 +67,12 @@
 
 <script>
 
-  
+  var ver_pontos = true
 
     function verpontos() {
        
-        //aguardar();
-       
-        fetch("/usuarios/listarPontuacao").then(function (resposta) {
+     if(ver_pontos == true){
+         fetch("/usuarios/listarPontuacao").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     throw "Nenhum resultado encontrado!!";
@@ -112,15 +111,21 @@
                         table.appendChild(tableTr);
                     }
 
-                    // finalizarAguardar();
+                    
                 });
             } else {
                 swal("Ops", "Houve um erro na API!", "warning");
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            // finalizarAguardar();
+           
         });
+        
+        ver_pontos = false;
+
+     }
+       
+       
     }
 
 </script>
