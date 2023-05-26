@@ -6,14 +6,14 @@ function listar(tipo, ano, posicao) {
 }
 
 
-function buscarUltimasMedidas(idteste, limite_linhas) {
+function buscarUltimasMedidas(idteste) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `SELECT * FROM teste`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `SELECT * FROM teste where idteste = ${idteste}`;
+        instrucaoSql = `select golsMarcados, golsSofridos, mediaDePublico from teste join estatisticas on fkteste =  ${idteste};`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

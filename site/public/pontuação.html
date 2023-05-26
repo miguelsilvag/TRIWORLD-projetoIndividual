@@ -8,6 +8,10 @@
    <link rel="stylesheet" href="css/blog.css">
    <link rel="stylesheet" href="css/login.css">
    <link rel="stylesheet" href="css/tel-inicial.css">
+   <link rel="stylesheet" href="css/quiz.css">
+   <link rel="stylesheet" href="css/cadastro.css">
+   <link rel="stylesheet" href="css/pontuação.css">
+ 
    
    <link rel="icon"
    href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
@@ -43,19 +47,20 @@
     <br><br><br><br>
         <div class="Pontuacao">
             <div class="card">
-                <h1 style="color: black;">Pontuação geral do quiz</h1>
-                <div class="card-pontos">
+                <h1 style="color: black;">Pontuação geral do quiz</h1><br>
+
+                <button class="pontos"onclick="verpontos()"> ver pontuação</button>
+             
                     <li>
-                        <table class="bordered, striped e centered highlight e responsive-table" id="infos" width="467"
-                            border="1px" bgcolor="red">
+                        <table id="infos" width="467"
+                            border="1px" bgcolor="white">
                             <tr>
                                 <th>Jogador</th>
                                 <th>Pontuação</th><br><br>
-                                <button class="password-infos"onclick="verpontos()"> ver pontuação</button>
                              
                             </tr>
                         </table>
-                </div>
+             
             </div>
             </main>
 </body>

@@ -175,19 +175,19 @@
                     <div class="resp">
                         <div class="opcao">
                             <input type="radio" name="opcao7" value="mineiro">
-                            <span class="text">a) mineiro</span>
+                            <span class="text">a) Mineiro</span>
                         </div>
                         <div class="opcao">
                             <input type="radio" name="opcao7" value="josue">
-                            <span class="text">b) josue</span>
+                            <span class="text">b) Josue</span>
                         </div>
                         <div class="opcao">
                             <input type="radio" name="opcao7" value="borges">
-                            <span class="text">c) borges</span>
+                            <span class="text">c) Borges</span>
                         </div>
                         <div class="opcao">
                             <input type="radio" name="opcao7" value="rogerio ceni">
-                            <span class="text">d)rogerio ceni</span>
+                            <span class="text">d)Rogerio ceni</span>
                         </div>
                     </div>
                 </div>
@@ -196,19 +196,19 @@
                     <div class="resp">
                         <div class="opcao">
                             <input type="radio" name="opcao8" value="corinthians">
-                            <span class="text">a) corinthians</span>
+                            <span class="text">a) Corinthians</span>
                         </div>
                         <div class="opcao">
                             <input type="radio" name="opcao8" value="santos">
-                            <span class="text">b) santos</span>
+                            <span class="text">b) Santos</span>
                         </div>
                         <div class="opcao">
                             <input type="radio" name="opcao8" value="palmeiras">
-                            <span class="text">c) palmeiras</span>
+                            <span class="text">c) Palmeiras</span>
                         </div>
                         <div class="opcao">
                             <input type="radio" name="opcao8" value="agua santa">
-                            <span class="text">d) agua santa</span>
+                            <span class="text">d) Água santa</span>
                         </div>
                     </div>
                 </div>
@@ -337,18 +337,8 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
+                    alert('Quiz concluido, iremos mostrar sua pontuação')
                     window.location = "./pontuação.html";
-                    Swal.fire({
-
-                        imageUrl: 'assets/imgs/gif-quiz.gif',
-                        imageWidth: 3000,
-                        title: 'Quiz finalizado',
-                        html: msg,
-                    }).then((result) => {
-                        setTimeout(function () {
-
-                        }, 1000);
-                    })
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }

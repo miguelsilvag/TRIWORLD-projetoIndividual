@@ -1,184 +1,185 @@
 body {
-    font-family: sans-serif;
-    text-align: center;
-    background-color: #EFF0F3;
-  }
-  
-  h1 {
-    color: #D82431;
-    text-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-  }
-  
-  form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-  }
-  
-  label {
-    margin: 10px 0;
-  }
-  
-  select {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-  }
-  
-  input[type="submit"] {
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    color: #FFFFFF;
-    background-color: #D82431;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #9D202F;
-  }
-  
-  
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #EFF0F3;
+}
+
+h1 {
+  color: #D82431;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  margin: 10px 0;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  color: #FFFFFF;
+  background-color: #D82431;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #9D202F;
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
 
 
 
-.banner-quiz{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-   /* width: 100vw;*/
-   background: linear-gradient( to bottom, #f54444, #FF4500);
-    height:100vh;
-    background-repeat: no-repeat;
-    background-size: 104%;
-    background-position: -4vw top;
-    box-shadow: 0px 170px 48px rgba(0, 0, 0, 0.01), 0px 109px 44px rgba(0, 0, 0, 0.06),
-        0px 61px 37px rgba(0, 0, 0, 0.2), 0px 27px 27px rgba(0, 0, 0, 0.34),
-        0px 7px 15px rgba(0, 0, 0, 0.39), 0px 0px 0px rgba(0, 0, 0, 0.4);
+.banner-quiz {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100vw;*/
+  background: linear-gradient(to bottom, #f54444, #FF4500);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 104%;
+  background-position: -4vw top;
+  box-shadow: 0px 170px 48px rgba(0, 0, 0, 0.01), 0px 109px 44px rgba(0, 0, 0, 0.06),
+    0px 61px 37px rgba(0, 0, 0, 0.2), 0px 27px 27px rgba(0, 0, 0, 0.34),
+    0px 7px 15px rgba(0, 0, 0, 0.39), 0px 0px 0px rgba(0, 0, 0, 0.4);
 }
 
 
 #dashboard-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
 
 .quiz {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
- 
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .quiz .saopaulo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: url();
-    border-radius: 10px;
-    box-shadow: 5px 0px 55px #333333;
-    border: #333333;
-    border-radius: 10px;
-    height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 5px 0px 55px #333333;
+  border: #333333;
+  border-radius: 10px;
+  height: fit-content;
 }
 
-.quiz .card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    backdrop-filter: blur(100px);
-    background-size: cover;
-    border-radius: 15px;
-    width: 400px;
-    box-shadow: inset 15px 10px 150px #333333;
-    border: 8px solid red;
-    padding: 4vh 2vw;
+.quiz .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(100px);
+  background-size: cover;
+  border-radius: 15px;
+  width: 400px;
+  box-shadow: inset 15px 10px 150px #333333;
+  border: 8px solid red;
+  padding: 4vh 2vw;
 }
 
 
-.saopaulo .titulo{
-color: #fff;
-font-size: 1.6rem;
+.saopaulo .titulo {
+  color: #fff;
+  font-size: 1.6rem;
 }
 
 
 .quiz .questoes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.questoes h1{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-shadow:
-      -1px -1px 0px #000,
-      -1px 1px 0px #000,
-      1px -1px 0px #000,
-      1px 0px 0px #000;
-    font-weight: 400;
-    font-size: 1.77rem;
-    color:#fff;
+.questoes h1 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-shadow:
+    -1px -1px 0px #000,
+    -1px 1px 0px #000,
+    1px -1px 0px #000,
+    1px 0px 0px #000;
+  font-weight: 400;
+  font-size: 1.77rem;
+  color: #fff;
 }
 
-.questoes img{
-    width: 50vw;
-    height: 10vh;
+.questoes img {
+  width: 50vw;
+  height: 10vh;
 }
 
 .quiz .opcao {
-    margin: 0.5vh 0 5vh 0;
+  margin: 0.5vh 0 5vh 0;
 }
 
-.opcao .text{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-shadow:
-      -1px -1px 0px #000,
-      -1px 1px 0px #000,
-      1px -1px 0px #000,
-      1px 0px 0px #000;
-    font-weight: 400;
-font-size: 1.5rem;
-color: #fff;
+.opcao .text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-shadow:
+    -1px -1px 0px #000,
+    -1px 1px 0px #000,
+    1px -1px 0px #000,
+    1px 0px 0px #000;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
-.opcao input{
-    width: 3vw;
-    height: 3vh;
-    border: 6px solid #000;
+.opcao input {
+  width: 3vw;
+  height: 3vh;
+  border: 6px solid #000;
 }
 
 
 .quiz .resp {
-    margin: 2vh 0 2vh 0;
+  margin: 2vh 0 2vh 0;
 }
 
 .botao {
-    color: white;
-    padding: 1vh 1vw;
-    margin: 0 2vw;
-    font-size: 20px;;
-    align-self: center;
-    box-shadow: 0px 0px 5px red;
-    border-radius: 5px;
-    background-color:  red;;
-    border: none;
-    cursor: pointer;
+  color: white;
+  padding: 1vh 1vw;
+  margin: 0 2vw;
+  font-size: 20px;
+  ;
+  align-self: center;
+  box-shadow: 0px 0px 5px red;
+  border-radius: 5px;
+  background-color: red;
+  ;
+  border: none;
+  cursor: pointer;
 }

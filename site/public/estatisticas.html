@@ -182,7 +182,7 @@
 							// O gráfico é construído com três funções:
 							// 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
 							// 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-							// 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+							
 
 							// Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
 							// para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
@@ -327,13 +327,8 @@
 									document.getElementById(`myChartCanvas${idteste}`),
 									config
 								);
-
-								setTimeout(() => atualizarGrafico(idteste, dados, myChart), 2000);
 							}
 
-
-							// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-							// buscando a última medida inserida em tabela contendo as capturas, 
 
 							//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 							//     Para ajustar o "select", ajuste o comando sql em src/models
