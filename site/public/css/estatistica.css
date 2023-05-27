@@ -11,4 +11,17 @@ body {
     text-align: center;
     color: white;
   }
-  
+
+
+
+
+.number {
+    font-size: 35px;
+    font-weight: 300;
+    color: red;
+    background-color: white;
+}
+
+h1{
+  background-color: white;
+}

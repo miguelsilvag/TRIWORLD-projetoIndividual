@@ -13,7 +13,7 @@ function buscarUltimasMedidas(idteste) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `SELECT * FROM teste`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select golsMarcados, golsSofridos, mediaDePublico from teste join estatisticas on fkteste =  ${idteste};`;
+        instrucaoSql = `select * from teste join estatisticas on fkteste = idestatisticas where idteste = fkteste;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
