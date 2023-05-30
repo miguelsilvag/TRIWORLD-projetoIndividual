@@ -239,6 +239,7 @@
     var radios = [];
     var respostascorretas = ["22", "3", "3", "6", "0", "serginho chulapa", "rogerio ceni", "corinthians"];
     var idUsuario = sessionStorage.ID_USUARIO;
+    var media = 0
 
 
 
@@ -311,13 +312,14 @@
         if (radios.length < respostascorretas.length) {
 
         } else {
-            Usuario = 0;
+            Usuario = 1;
             for (var index = 0; index < radios.length; index++) {
                 if (respostascorretas.indexOf(radios[index].value) >= 0) {
                     Usuario++;
                 }
             }
             pontos = Usuario * 10;
+            media = pontos / 8
 
             fetch("/usuarios/cadastrarPontuacao", {
                 method: "POST",
@@ -330,6 +332,7 @@
                     // idUsuarioServer: idUsuario,
                     idUsuarioServer: sessionStorage.ID_USUARIO,
                     pontosServer: pontos,
+                    mediaServer: media,
 
                 })
             }).then(function (resposta) {

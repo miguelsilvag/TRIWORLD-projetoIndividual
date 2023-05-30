@@ -104,6 +104,7 @@ function cadastrarPontuacao(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var idUsuario = req.body.idUsuarioServer;
     var pontos = req.body.pontosServer;
+    var media = req.body.mediaServer;
    
 
     // Faça as validações dos valores
@@ -115,7 +116,7 @@ function cadastrarPontuacao(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarPontuacao(idUsuario, pontos)
+        usuarioModel.cadastrarPontuacao(idUsuario, pontos,media)
             .then(
                 function (resultado) {
                     res.json(resultado);

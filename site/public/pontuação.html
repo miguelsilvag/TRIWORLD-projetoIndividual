@@ -56,7 +56,8 @@
                             border="1px" bgcolor="white">
                             <tr>
                                 <th>Jogador</th>
-                                <th>Pontuação</th><br><br>
+                                <th>Pontuação</th>
+                                <th>Nota</th><br><br>
                              
                             </tr>
                         </table>
@@ -95,16 +96,19 @@
                         // e dá à ele conteúdo
                         var tdNome = document.createElement("td");
                         var tdpontuacao = document.createElement("td");
+                        var tdmedia = document.createElement("td");
                                
                         var tableTr = document.createElement("tr");
                         var hr = document.createElement("hr");
 
                         tdNome.className = "text"
                         tdpontuacao.className = "text"
+                        tdmedia.className = "text"
                  
 
                         tdNome.innerHTML = `${publicacao.nome}`;
                         tdpontuacao.innerHTML = `${publicacao.pontuacao}pts.`;
+                        tdmedia.innerHTML = `${publicacao.media}`;
                       
 
 
@@ -112,6 +116,7 @@
 
                         tableTr.appendChild(tdNome);
                         tableTr.appendChild(tdpontuacao);
+                        tableTr.appendChild(tdmedia);
                  
                         table.appendChild(tableTr);
                     }

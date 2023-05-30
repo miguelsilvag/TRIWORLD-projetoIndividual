@@ -1,7 +1,5 @@
 create database triworld;
 
-drop database triworld;
-
 use triworld;
 
 CREATE TABLE usuario (
@@ -27,13 +25,6 @@ posição varchar(50),
 INSERT INTO estatisticas VALUES
     (null, "libertadores", '2005-08-08', 'Campeão',1);
 
-
-INSERT INTO estatisticas VALUES
-    (null, "libertadores", '1992-07-07', 'campeão',2);
-
-INSERT INTO estatisticas VALUES
-    (null, "libertadores", '1993-09-09', 'campeão',3);
-
 select * from estatisticas;
 
 create table teste(
@@ -44,14 +35,8 @@ mediaDePublico varchar(45)
 );
 
 insert into teste values 
-(null,'27','20','18'),
-(null,'10','10','175'),
-(null,'12','50','53');
+(null,'96','34','100');
 
-insert into teste values 
-(null,'100','20','18'),
-(null,'170','10','175'),
-(null,'12','50','53');
 
 select * from teste;
 
@@ -60,10 +45,10 @@ CREATE TABLE Pontuacao (
     fkusuario INT, 
     FOREIGN KEY (fkusuario) REFERENCES usuario(idusuario),
 	pontuacao INT,
-    perPont FLOAT
+    media decimal(3,1)
 );
 
-select * from pontuacao;
+select * from Pontuacao;
 
 
 
