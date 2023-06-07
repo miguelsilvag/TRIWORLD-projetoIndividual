@@ -34,6 +34,7 @@
 	
 	article {
 		margin-bottom: 20px;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	}
 	
 	h2 {
@@ -60,6 +61,7 @@
     display: flex;
     width: 780px;
     height: 530px;
+	z-index: 5;
 	
 }
 
@@ -69,10 +71,73 @@ section img{
     object-fit: cover ;
     opacity: .8;
     transition: .5s ease;
+	
 }
 section img:hover{
     cursor: url('../css/cartao-vermelho.png');
     width: 300px;
     opacity: 1;
     filter: contrast(120%);
+}
+
+.testando{
+	position: relative;
+	display: flex;
+	width: 800px;
+	height: 300px;
+	border: 2px solid black;
+}
+
+.testando .hover_players{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+
+.testando .hover_players a{
+	opacity: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 25%;
+	height: 100%;
+	text-decoration: none;
+	color: black;
+	font-weight: 900;
+	transition: 2s;
+	
+	
+}
+
+.testando .hover_players a:hover{
+	opacity: 1;
+	
+}
+
+#gol2{
+	left: 25%;
+}
+
+#gol3{
+	left: 50%;
+}
+
+#gol4{
+	left: 75%;
+}
+
+.testando .img_box{
+	width: 100%;
+	height: 100%;
+}
+.testando .img_box img{
+	width: 100%;
+	height: 100%;
+}
+.oi{
+	background-color: white;
+
+	
 }
