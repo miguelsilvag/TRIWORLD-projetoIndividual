@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="./css/login.css">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<link rel="icon"
-		href="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2">
+		href="./assets/spfc.png">
 	<link rel="stylesheet" href="./css/estatistica.css">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -22,7 +22,7 @@
 		<div class="container">
 			<a href="./index.html">
 				<h1 class="titulo"> <img width="75px" height="75px"
-						src="https://th.bing.com/th?id=OIP.40raZ5Gkgw1pbfLgUY5DTgHaHY&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2"
+						src="./assets/spfc.png"
 						alt=""></h1>
 			</a>
 			<ul class="navbar">
@@ -53,7 +53,7 @@
 			
 				
 					<h1 style="color: black;">Aviso:</h1><br>
-					<div class="number">No momento só temos dados <br>da LIBERTADORES no ano de 2005-08-08 em que o São
+					<div class="number">No momento só temos dados <br>da LIBERTADORES no ano de 2005-07-14 em que o São
 						Paulo foi Campeão</div>
 					
 		
@@ -120,8 +120,9 @@
 
 			mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 			return false;
-		}
-		else {
+		}else if(tipoVar != "libertadores" || anoVar != "2005-07-14" || posiçãoVar != "campeão"){
+			alert("Informe os dados de acordo com o texto abaixo do aviso")
+		}else {
 			alert('Estamos validando')
 
 		}
@@ -176,7 +177,7 @@
 								obterDadosGrafico(1)
 							}
 
-							function exibirAquario(idteste) {
+							function exibirAquario(idvitorias) {
 								let todosOsGraficos = document.getElementById("graficos")
 
 								for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
@@ -204,20 +205,20 @@
 							//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 							//     Para ajustar o "select", ajuste o comando sql em src/models
 
-							function obterDadosGrafico(idteste) {
+							function obterDadosGrafico(iddados) {
 
 								if (proximaAtualizacao != undefined) {
 									clearTimeout(proximaAtualizacao);
 								}
 
-								fetch(`/estatisticas/listar/${idteste}`, { cache: 'no-store' }).then(function (response) {
+								fetch(`/estatisticas/listar/${iddados}`, { cache: 'no-store' }).then(function (response) {
 
 									if (response.ok) {
 										response.json().then(function (resposta) {
 											console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 											resposta.reverse();
 
-											plotarGrafico(resposta, idteste);
+											plotarGrafico(resposta, iddados);
 										});
 									} else {
 										console.error('Nenhum dado encontrado ou erro na API');
@@ -231,7 +232,7 @@
 							// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
 							// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
 							// A função *plotarGrafico* também invoca a função *atualizarGrafico*
-							function plotarGrafico(resposta, idteste) {
+							function plotarGrafico(resposta, iddados) {
 
 								console.log('iniciando plotagem do gráfico...');
 
@@ -263,7 +264,7 @@
 													borderwidth: 2
 												},
 												{
-													label: ' Media de publico ',
+													label: ' vitorias ',
 													data: [],
 													backgroundColor: 'white',
 													borderColor: '#36A2EB',
@@ -298,7 +299,7 @@
 											borderwidth: 2
 										},
 										{
-											label: "Media de Publico",
+											label: "vitorias",
 											data: [],
 											backgroundColor: "blue",
 											backgroundColor: 'blue',
@@ -318,7 +319,7 @@
 									dados.labels.push(registro.golsMarcados);
 									dados.datasets[0].data.push(registro.golsMarcados);
 									dados.datasets[1].data.push(registro.golsSofridos);
-									dados.datasets[2].data.push(registro.mediaDePublico);
+									dados.datasets[2].data.push(registro.vitorias);
 								}
 
 								console.log('----------------------------------------------')
@@ -337,7 +338,7 @@
 
 								// Adicionando gráfico criado em div na tela
 								let myChart = new Chart(
-									document.getElementById(`myChartCanvas${idteste}`),
+									document.getElementById(`myChartCanvas${iddados}`),
 									config
 								);
 							}

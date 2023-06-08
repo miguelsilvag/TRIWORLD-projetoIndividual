@@ -11,7 +11,7 @@ router.post("/listar", function (req, res) {
     estatisticasController.listar(req, res);
 })
 
-router.get("/listar/:idteste", function (req, res) {
+router.get("/listar/:iddados", function (req, res) {
     estatisticasController.buscarUltimasMedidas(req, res);
 });
 

@@ -27,11 +27,11 @@ function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
 
-    var idteste = req.params.idteste;
+    var iddados = req.params.iddados;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    estatisticasModel.buscarUltimasMedidas(idteste, limite_linhas).then(function (resultado) {
+    estatisticasModel.buscarUltimasMedidas(iddados, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
